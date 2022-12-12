@@ -1,0 +1,114 @@
+/* ====================================================== */
+/* =================== FOOTER DU SITE =================== */
+/* ====================================================== */
+
+.site-footer {
+    background-color : var(--cp-color-primary);
+    background : url(../../img/bg.jpg) no-repeat center;
+    background-size : cover;
+    color : rgba(255,255,255,0.8);
+    
+    font-size : 0.9em;
+    text-align:center;
+}
+
+.site-footer a {
+    color : white;
+}
+
+.site-footer-cgv,
+.site-footer-mentions {
+        
+    background-color : rgba(0,0,0,0.1);
+}
+
+.site-footer-cgv {
+    list-style : none;
+    margin : 0;
+    padding-right : var(--cp-gutter);
+    
+    display : flex;
+    flex-wrap : wrap;
+    justify-content : center;
+    
+    column-gap : calc( var(--cp-gutter) / 2 );
+    row-gap : var(--cp-gutter);
+   
+    text-transform : uppercase;
+}
+
+.site-footer-cgv > * {
+    flex : 1 1 155px;
+    
+    display : flex;
+    flex-direction : column;
+    
+    justify-content: space-between;
+    align-items : center;
+    
+    row-gap : calc( var(--cp-gutter) / 2 );
+    
+}
+
+
+.site-footer-nav ul,
+.site-footer-navs ul {
+    list-style : none;
+    margin : 0;
+    padding: 0;
+    
+}
+
+
+/* Dans ce conteneur, ul et h2 sont dans une section */
+.site-footer-navs {
+    display : grid;
+    
+    /* 
+        Pas besoin de media-queries : 
+        les éléments ont une taille minimum de 300px, ou la place restante 
+        ils occcupent une ligne tant que cela rentre
+        
+        auto-fill vs auto-fit
+            -> Voir : https://codepen.io/elad2412/pen/mLqBwr
+    */
+    grid-template-columns : repeat(auto-fit, minmax(300px,1fr));
+    justify-items: center;
+    
+    gap : var(--cp-gutter);
+}
+
+
+@media screen and (min-width: 768px) {
+    
+    /* Dans ce conteneur, h2 et ul se suivent  */
+    .site-footer-nav {
+    
+        display: grid;
+        
+        /* 
+            On veut : 
+            
+            1 3 5
+            ----
+            2 4 6
+            
+            et non 
+            
+            1 2 3
+            ----
+            4 5 6
+            
+            Voir : https://css-tricks.com/grid-auto-flow-css-grid-flex-direction-flexbox/
+            (Merci Rojwan !)
+            
+        */
+
+        justify-items: center;
+        grid-auto-flow: column; 
+        grid-template-rows: repeat(2,auto);
+        grid-template-columns: repeat(3,auto);
+
+    }
+}
+

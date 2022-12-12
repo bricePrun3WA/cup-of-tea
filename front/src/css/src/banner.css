@@ -1,0 +1,154 @@
+/* ====================================================== */
+/* =========== Header et navigation principale ========== */
+/* ====================================================== */
+
+
+.site-header {
+
+    position:relative;
+    
+    /* Rajouter au padding-top la hauteur de promo postionné en aboslute */
+    padding-top : calc( 1.4em + 1rem + var(--cp-gutter) );
+    
+    background-color : var(--cp-color-primary);
+    background : url(../../img/bg.jpg) no-repeat center;
+    background-size : cover;
+    
+    color : white;
+}
+
+.site-header-promo {
+    position : absolute;
+    top:0;
+    left:0; right:0;
+    z-index:1000;
+    
+    margin : 0;
+    padding : .5rem;
+    
+    background-color : rgba(0,0,0,0.1);
+    
+    text-align : center;
+}
+
+
+.site-header-nav-link {
+    color : white;
+    text-transform : uppercase;
+    letter-spacing : 1px;
+}
+
+
+/* Sur mobile uniquement */
+@media screen and (max-width: 767px) {
+    
+    .site-header-baseline {
+        display:none;
+    }
+    
+
+    .site-header-cart {
+
+        /* Décaler de la valeur du padding pour coller au bord */
+        margin-left : -2.5rem;
+        /* 
+            Idem en utilisant la variable : 
+            Utiliser calc() pour passer la valeur négative  
+        */
+        margin-left : calc(var(--cp-gutter) * -1 ); 
+        
+        padding : 1rem;
+        border-radius: 0 5rem 5rem 0;
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .site-header-cart span[aria-hidden] {
+        display : none;
+    } 
+}
+
+
+
+/* Introduction aux possibilités de Grid */
+
+.site-header {
+    display : grid;
+    
+    /* Définir des zones */
+    grid-template-areas :
+        "cart"
+        "logo"
+        "nav"
+    ;
+    
+    gap : var(--cp-gutter);
+}
+
+
+
+.site-header-logo {
+    /* Placer l'élément dans une zone prédéfinie */
+    grid-area : logo;
+}
+
+.site-header-nav {
+    grid-area : nav;
+    
+    /* 
+        Mise en forme de la nav 
+        
+        Organiser les enfants au travers une grille 
+            Par défaut, tous les éléments occupent une colonne
+            Chaque élément occupe une ligne
+    */
+    display : grid;
+    gap : var(--cp-gutter);
+    
+    justify-items : center;
+
+}
+
+.site-header-cart {
+    grid-area : cart;
+    justify-self: start;
+}
+
+
+@media screen and (min-width: 768px) {
+    
+    .site-header {
+        
+        grid-template-areas:
+            "logo cart"
+            "nav nav"
+        ;
+        
+        align-items: center;
+
+    }
+
+    .site-header-baseline {
+        position : absolute;
+        top:0;
+        right:0;
+        z-index:2000;
+    }
+    
+    
+    .site-header-nav {
+        /* */
+        grid-template-columns : auto auto auto auto auto;
+        grid-template-columns : repeat(5,auto);
+    }
+    
+    .site-header-cart {
+        position:relative;
+        z-index:3000;
+        
+        justify-self: end;
+        
+        padding-top : 2rem;
+        padding-right : 80px;
+    }
+}
+

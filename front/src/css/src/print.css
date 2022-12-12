@@ -1,0 +1,162 @@
+/* ====================================================== */
+/* ================== STYLES IMPRESSION ================= */
+/* ====================================================== */
+
+/**
+    Voir : 
+        https://www.alsacreations.com/tuto/lire/586-feuille-style-css-print-impression.html
+        https://www.alsacreations.com/astuce/lire/1160-une-feuille-de-styles-de-base-pour-le-media-print.html
+*/
+
+
+/**
+* Définition des marges de la page
+*/
+@page {
+    margin: 2cm;
+}
+  
+@media print {
+    /**
+    * Reset global de toutes les propriétés
+    */
+    * {
+        all: unset;
+        display: revert;
+    }
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+    img {    
+        max-width: 100%;
+    }
+    input,
+    textarea,
+    select {
+        all: revert;
+    }
+
+    /**
+    * Taille de polices globales (13pt=16px), couleur de texte et de fond
+    * Famille de police en serif (avec empattements)
+    */
+
+    body {
+        font-family: Georgia, "Times New Roman", Times, serif;
+        font-size: 13pt;
+        line-height: 1.5;
+        background-color: 
+    #fff!important;
+        color: 
+    #000!important;
+    }
+    h1 {
+        font-size: 24pt;
+    }
+    h2 {
+        font-size: 20pt;
+        margin-top: 20pt;
+    }
+    h3,
+    h4 {
+        font-size: 14pt;
+        margin-top: 14pt;
+    }
+    h5,
+    h6 {
+        font-size: 13pt;
+        margin-top: 14pt;
+    }
+
+    /**
+    * Lignes veuves et orphelines
+    */
+
+    p,
+    blockquote,
+    figcaption {
+        orphans: 3; /* pas de ligne seule en bas */
+        widows: 3; /* pas de ligne seule en haut */
+    }
+
+    /**
+    * Sauts de pages
+    */
+
+    ul,
+    ol,
+    dl,
+    a,
+    table,
+    pre,
+    blockquote {
+        page-break-inside: avoid; /* pas de sauts au sein de ces élements */
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    img,
+    figure,
+    caption {
+        page-break-inside: avoid; /* pas de sauts au sein de ces élements */
+        page-break-after: avoid; /* pas de saut après ces éléments */
+    }
+
+    ul,
+    ol,
+    dl {
+        page-break-before: avoid; /* pas de sauts avant de ces élements */
+    }
+
+    /**
+    * Liens
+    */
+
+    a,
+    a:link,
+    a:visited {
+    background: 
+    transparent !important;
+    color: unset;
+    font-weight: 700;
+    text-decoration: underline !important;
+    }
+
+    a[href^=http]:after,
+    a[href^=https]:after,
+        {
+        content: " (" attr(href) ")"; /* affichage des URL des liens externes */
+    }
+
+    /**
+    * Masquage des vidéos
+    */
+
+    video,
+    object,
+    iframe {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+        overflow: hidden !important;
+    }
+
+    /**
+    * Classes utilitaires
+    */
+
+    .u-print {
+        display: block;
+        display: revert !important; /* affichage des éléments de classe u-print */
+    }
+    .u-no-print {
+        display: none !important; /* masquage des éléments de classe u-no-print */
+    }
+  
+}

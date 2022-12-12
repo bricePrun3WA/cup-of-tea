@@ -1,0 +1,16 @@
+@import url('src/variables.css');
+@import url('src/fonts.css');
+@import url('src/normalize.css');
+@import url('src/bases.css');
+@import url('src/layout.css');
+@import url('src/banner.css');
+@import url('src/footer.css');
+@import url('src/modules.css');
+@import url('src/print.css');
+
+.card-title {
+    font-size: 2rem!important;
+}
+body, .form-label, .form-control, .btn, .btn-link {
+    font-size: 1.5rem!important;
+}

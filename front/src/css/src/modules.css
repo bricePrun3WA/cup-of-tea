@@ -1,0 +1,61 @@
+/* ====================================================== */
+/* ==== MODULES (classes, comportements spécifiques) ==== */
+/* ====================================================== */
+
+/* ====================================================== */
+/* ====================== SLIDER ======================== */
+/* ====================================================== */
+
+.slider {
+    position : relative;
+}
+
+.slider-figure {
+    display : none;
+}
+
+.slider-figure.is-active {
+    position : relative;
+    display : block;
+
+    border : 5px solid white;
+}
+
+.slider-figure figcaption {
+    position : absolute;
+    top : 0;
+    left :0; right : 0;
+
+    padding : 0 1em;
+    background : rgba(0,0,0,0.5);
+
+    font-family: "Bodega Sans", arial, sans-serif;
+    font-size : 2vmax;
+
+    text-shadow: 3px 3px 5px #ff9d00;
+}
+
+.slider-nav {
+    position : absolute;
+    left : 20px;
+    right : 20px;
+    top : 50%;
+
+    display: flex;
+    justify-content: space-between;
+
+    transform: translateY(-50%);
+
+    font-size : 3vmax;
+    line-height : 1;
+}
+
+.slider-nav-link {
+    color : rgba(255,255,255,0.3);
+}
+
+.slider-nav-link:hover,
+.slider-nav-link:focus,
+.slider-nav-link:active {
+    color : #ff9d00;
+}

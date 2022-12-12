@@ -1,0 +1,24 @@
+:root {
+    --cp-color-default:#666;
+    --cp-color-neutral:#f2f2f2;
+    --cp-color-primary:#96b011;
+    --cp-color-primary-rgb:135, 158, 15;
+    --cp-color-secondary:#b09067;
+    --cp-color-secondary-rgb:176,144,103;
+
+    --cp-font-default: "Open Sans", Verdana, sans-serif;
+    --cp-font-title:   "Amaranth";
+    --cp-font-title-weight: normal;
+
+    --cp-color-bg-body:var(--cp-color-neutral);
+
+    --cp-color-link: var(--cp-color-primary);
+    --cp-color-link-hover: var(--cp-color-secondary);
+
+    --cp-gutter : 2.5rem;
+
+    --cp-layout-max : 1100px;
+
+    --cp-line-height : 1.4;
+
+}

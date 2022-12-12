@@ -1,0 +1,59 @@
+/* ====================================================== */
+/* =============== Styles globaux de base =============== */
+/* ====================================================== */
+
+* {
+    box-sizing : border-box;
+}
+
+/* Police, taille du texte par défaut */
+html {
+    /* Ramener la taille par défaut à 10px */
+    font-size : 62.5%;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color : var(--cp-color-bg-body);
+    font-family: var(--cp-font-default);
+    font-size : 1.6rem;
+    line-height : var(--cp-line-height);
+    color : var(--cp-color-default);
+}
+
+/* Styles des liens par défaut */
+a {
+    color : var(--cp-color-link);
+    text-decoration: none;
+
+    transition : 0.5s ease;
+}
+
+a:hover,
+a:focus,
+a:active {
+    color : var(--cp-color-link-hover);
+    text-decoration: underline;
+}
+
+/* Styles des titres par défaut */
+h1,h2,h3,h4,h5,h6 {
+    font-family : var(--cp-font-title);
+    font-weight: var(--cp-font-title-weight);
+}
+
+h1 {
+    font-size : 4rem;
+    color : var(--cp-color-primary);
+}
+
+img,
+video {
+    max-width : 100%;
+    height : auto;
+}
+
+figure {
+    margin :0;
+}
+

@@ -1,0 +1,8 @@
+/* ====================================================== */
+/* ======== Chargement des polices non standards ======== */
+/* ====================================================== */
+
+@font-face {
+	font-family: "Amaranth";
+	src: url(../../webfonts/amaranth.otf);
+}

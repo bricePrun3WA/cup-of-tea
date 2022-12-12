@@ -1,0 +1,160 @@
+/* ====================================================== */
+/* ============ LAYOUT,  mise en page globale =========== */
+/* ====================================================== */ 
+.site-header,
+main,
+.site-footer > * {
+    padding : var(--cp-gutter);
+}
+
+@media screen and (min-width: 1100px) {
+    
+    .site-header,
+    main {
+        padding-right : calc( (100% - 1100px) / 2 + var(--cp-gutter));
+        padding-left : calc( (100% - 1100px)  / 2 + var(--cp-gutter));
+    }
+}
+
+
+.main-section {
+    margin : var(--cp-gutter) 0;
+    padding : var(--cp-gutter);
+    background : white;
+}
+
+
+/* ====================================================== */
+/* ======================== TITRES ====================== */
+/* ====================================================== */ 
+
+h1,h2 {
+    text-align: center;
+}
+
+
+.main-section-title {
+    margin-top : 0;
+    font-family : var(--cp-font-title);
+    font-weight: var(--cp-font-title-weight);
+    font-size : 2em;
+    color : var(--cp-color-primary);
+}
+
+/* 
+    La bordure droite et gauche 
+    
+        Insertion d'un pseudo-élement 
+        qui réagit comme une boite avec bordure
+        et qu'on centre verticalement avec une marge de la moitié de la hauteur du titre
+*/
+
+.main-section-title::after {
+    content: "";
+    display: block;
+    border-top: 1px solid rgba(176,144,103,0.3);
+    margin-top: calc( -1.4em / 2 );
+}
+
+/* Le span permet de masquer la bordure sous le texte */
+.main-section-title span {
+    display : inline-block;
+    padding : 0 1rem;
+    background : white;
+}
+
+
+/* ====================================================== */
+/* ================ NAVIGATION DES THES ================= */
+/* ====================================================== */ 
+
+/* Colonnage avec FLEX */
+
+.products-nav {
+    display : flex;
+    /* Pour passer à la ligne si cela ne rentre plus*/
+    flex-wrap : wrap;
+    
+    /* Centrer les boites (surtout la dernière quand elle est seule) */
+    justify-content : center;
+    
+    /* Centrer le texte */
+    text-align : center;
+}
+
+/* 
+    Cibler les enfants directs pour régler leur flexitude 
+    
+    En leur donnant une taille (flex-basis) 
+    correspondant à la largeur intrinsèque préférée (pas de retour à la ligne du texte)
+    
+    https://developer.mozilla.org/en-US/docs/Web/CSS/max-content
+        
+    Pas besoin de media-queries
+    Il restent en ligne tant que cela rentre 
+*/
+.products-nav > * {
+    /* flex-grow - flex-shrink - flex--basis */
+    flex : 1 1 max-content;
+}
+
+/* IL faut nénamoins contraindre h2 à occuper 100% de l'espace (attention au sélecteur ) */
+.products-nav > h2 {
+    /* flex-basis car il y a une unité */
+    flex : 100%;
+}
+
+
+.products-nav img {
+    display: block;
+    margin : auto;
+}
+
+.products-nav a {
+    color : var(--cp-color-default);
+    font-family: var(--cp-font-title);
+    font-size : 2rem;
+}
+
+/* ====================================================== */
+/* ============ LAYOUT & styles products  =============== */
+/* ====================================================== */ 
+
+
+
+/* Colonnage dans des articles avec GRID */
+.feed {
+    display : grid;
+    grid-template-columns: repeat(auto-fill,minmax(300px, 1fr));
+    gap : var(--cp-gutter);
+
+    justify-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+
+.article-link {
+    display : inline-block;
+    background-color : var(--cp-color-secondary);
+    margin-top : var(--cp-gutter);
+    padding : 1.5rem 2rem;
+
+    color : white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.article-link:hover,
+.article-link:focus,
+.article-link:active {
+    transform : scale(1.2);
+    color : white;
+    text-decoration: none;
+}
+
+
+
+
+
